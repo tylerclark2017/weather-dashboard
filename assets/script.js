@@ -87,22 +87,22 @@ function fiveDayForecast (city){
     listItem.textContent = cityName;
   
     listItem.addEventListener('click', function() {
-      getWeatherData(cityName);
+      currentWeather(cityName);
     });
   
     document.getElementById('search-history').appendChild(listItem);
   }
 
-  document.querySelectorAll('#search-history li').forEach(function(item) {
-    item.addEventListener('click', function() {
-      var cityName = this.textContent;
-      getWeatherData(cityName);
-    });
-  });
-  
   window.addEventListener('load', function() {
     var city = localStorage.getItem('city');
     if (city) {
-        currentWeather(city);
-      }
+      currentWeather(city);
+    }
+  
+    document.querySelectorAll('#search-history li').forEach(function(item) {
+      item.addEventListener('click', function() {
+        var cityName = this.textContent;
+        getWeatherData(cityName);
+      });
     });
+  });
