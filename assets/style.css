@@ -49,8 +49,8 @@ h2 {
     justify-content: space-between;
 }
 
+
 #forecast-cards {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    display: flex;
+    flex: gap; /* flexgap or gap here! */
 }
