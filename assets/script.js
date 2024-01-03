@@ -8,6 +8,7 @@ searchForm.addEventListener("submit", function(event){
     event.preventDefault()
     var city = document.querySelector("#search-input").value;
     currentWeather(city)
+    localStorage.setItem('city', city);
 })
 function render (data, container) {
     var div = document.createElement('div')
@@ -98,3 +99,10 @@ function fiveDayForecast (city){
       getWeatherData(cityName);
     });
   });
+  
+  window.addEventListener('load', function() {
+    var city = localStorage.getItem('city');
+    if (city) {
+        currentWeather(city);
+      }
+    });
